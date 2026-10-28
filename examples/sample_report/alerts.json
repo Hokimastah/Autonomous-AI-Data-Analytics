@@ -1,0 +1,7 @@
+[
+  {
+    "level": "warning",
+    "name": "monthly_drop",
+    "detail": "unit_price declined 35.2245% in 2025-04 vs prior month; check partial-month effects"
+  }
+]

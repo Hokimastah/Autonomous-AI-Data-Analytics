@@ -1,0 +1,41 @@
+{
+  "source_sha256": "1d783231018befe95975282832f73b97060e40d8ad849c6c0db3d080615c443a",
+  "source_file": "data/sales_demo.csv",
+  "proposals": [
+    {
+      "id": "b999aaa0699e",
+      "operation": "drop_exact_duplicates",
+      "column": null,
+      "affected_rows": 5,
+      "explanation": "Remove only completely identical rows; duplicated business identifiers are NOT automatically dropped."
+    },
+    {
+      "id": "694ab4d0dccd",
+      "operation": "fill_unknown",
+      "column": "region",
+      "affected_rows": 17,
+      "explanation": "Label missing categories as (Unknown); do not infer actual values."
+    },
+    {
+      "id": "0b55bc67965f",
+      "operation": "trim_strings",
+      "column": "region",
+      "affected_rows": 16,
+      "explanation": "Remove surrounding whitespace; can merge category labels."
+    },
+    {
+      "id": "350318054b7a",
+      "operation": "fill_median",
+      "column": "unit_price",
+      "affected_rows": 21,
+      "explanation": "Fill numeric missing cells with the median; this may bias downstream statistics."
+    },
+    {
+      "id": "18695c96cdd8",
+      "operation": "fill_median",
+      "column": "revenue",
+      "affected_rows": 21,
+      "explanation": "Fill numeric missing cells with the median; this may bias downstream statistics."
+    }
+  ]
+}

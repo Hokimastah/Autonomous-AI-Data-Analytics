@@ -1,0 +1,7 @@
+{
+  "project": "Autonomous AI Data Analytics — Local",
+  "version": "1.0.0",
+  "includes": ["CLI", "optional Streamlit UI", "Ollama structured-output planning", "data semantic layer", "human-approved cleaning", "allowlisted analytics", "adaptive decision loop", "offline Plotly dashboard", "SQLite history", "step checkpoints", "file-watch automation", "synthetic sample and example report", "tests and Indonesian manual"],
+  "verified": ["local Python rules mode", "report and offline charts", "cleaning approval workflow", "resumed run", "Ollama mocked responses and offline fallback", "14 automated tests"],
+  "not_live_tested": ["real Ollama model", "Streamlit UI runtime (package not installed in test environment)"]
+}

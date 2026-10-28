@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Autonomous Analytics Report</title><style>
+body{font-family:system-ui,-apple-system,sans-serif;background:#f7f9fc;color:#172233;margin:0}
+    .shell{max-width:1150px;margin:0 auto;padding:32px 22px}.hero{background:#152844;color:#fff;padding:26px;border-radius:16px}
+    .muted{color:#67788a}.hero .muted{color:#b7c9db}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:14px;margin:18px 0}
+    .card{background:white;border:1px solid #e3e9f0;border-radius:12px;padding:18px;box-shadow:0 1px 6px #18284109}
+    .value{font-size:28px;font-weight:700}.section{margin-top:30px}p{line-height:1.55}code,pre{font-size:12px}
+    table{border-collapse:collapse;width:100%;background:#fff}td,th{border:1px solid #dce5ee;text-align:left;padding:9px;font-size:13px}
+    th{background:#ebf1f7}iframe{width:100%;height:440px;border:1px solid #e3e9f0;border-radius:12px;background:#fff}
+    .pill{display:inline-block;border-radius:12px;padding:4px 9px;background:#edf2fb;margin:3px;font-size:12px}
+    .warning{border-left:4px solid #e9a038}.note{border-left:4px solid #6c91d9}small{color:#67788a}
+    .scroll{overflow-x:auto}a{color:#1464b5}
+</style></head><body><div class="shell">
+<div class="hero"><h1>Autonomous Data Analytics</h1><p>Analyze revenue trends, product contributions, anomalies, and data quality</p>
+<div class="muted">Run 20261028T052738641844Z • source data/sales_demo.csv • rules mode</div></div>
+<div class="cards">
+<div class="card"><div class="muted">Rows</div><div class="value">645</div></div>
+<div class="card"><div class="muted">Columns</div><div class="value">7</div></div>
+<div class="card"><div class="muted">Exact duplicates</div><div class="value">5</div></div>
+<div class="card"><div class="muted">Analysis steps</div><div class="value">12</div></div>
+<div class="card"><div class="muted">Verified findings</div><div class="value">12</div></div>
+<div class="card"><div class="muted">Alerts</div><div class="value">1</div></div>
+</div><section class="section"><h2>Verified findings (computed from data)</h2>
+<div class="card note"><b>step-1</b> — Maximum missing: unit_price (3.2558%).</div>
+<div class="card note"><b>step-2</b> — Summed revenue across 12 months; latest 2025-12 = 7014000.0.</div>
+<div class="card note"><b>step-3</b> — Largest absolute MoM change: 2025-02 (29.4141%).</div>
+<div class="card note"><b>step-4</b> — Summed quantity across 12 months; latest 2025-12 = 222.0.</div>
+<div class="card note"><b>step-5</b> — Largest absolute MoM change: 2025-10 (32.7485%).</div>
+<div class="card note"><b>step-6</b> — Summed unit_price across 12 months; latest 2025-12 = 1962000.0.</div>
+<div class="card note"><b>step-7</b> — Largest absolute MoM change: 2025-05 (43.0312%).</div>
+<div class="card note"><b>step-8</b> — Computed descriptive statistics for 3 numeric measures.</div>
+<div class="card note"><b>step-9</b> — Found 5 exact duplicate rows.</div>
+<div class="card note"><b>step-10</b> — Top product: Frozen Chicken = 27324000.0.</div>
+<div class="card note"><b>step-11</b> — Top product: Frozen Chicken = 727.0.</div>
+<div class="card note"><b>step-12</b> — Top product: Frozen Chicken = 7167000.0.</div>
+</section><section class="section"><h2>Data quality alerts</h2>
+<div class="card warning"><b>monthly_drop</b>: unit_price declined 35.2245% in 2025-04 vs prior month; check partial-month effects</div>
+</section>
+<section class="section"><h2>Data dictionary</h2><div class="scroll"><table><thead><tr><th>Column</th><th>Role</th><th>Type</th><th>Missing %</th><th>Unique</th></tr></thead><tbody>
+<tr><td>order_id</td><td>identifier</td><td>object</td><td>0.0</td><td>640</td></tr>
+<tr><td>order_date</td><td>date</td><td>object</td><td>0.0</td><td>298</td></tr>
+<tr><td>product</td><td>dimension</td><td>object</td><td>0.0</td><td>5</td></tr>
+<tr><td>region</td><td>dimension</td><td>object</td><td>2.64</td><td>5</td></tr>
+<tr><td>quantity</td><td>measure</td><td>int64</td><td>0.0</td><td>7</td></tr>
+<tr><td>unit_price</td><td>measure</td><td>float64</td><td>3.26</td><td>14</td></tr>
+<tr><td>revenue</td><td>measure</td><td>float64</td><td>3.26</td><td>88</td></tr>
+</tbody></table></div></section><section class="section"><h2>Charts (available offline)</h2>
+<h3>Step 1: missingness</h3><iframe loading="lazy" title="Chart" src="charts/chart_01.html"></iframe>
+<h3>Step 2: monthly_sum</h3><iframe loading="lazy" title="Chart" src="charts/chart_02.html"></iframe>
+<h3>Step 3: monthly_change</h3><iframe loading="lazy" title="Chart" src="charts/chart_03.html"></iframe>
+<h3>Step 4: monthly_sum</h3><iframe loading="lazy" title="Chart" src="charts/chart_04.html"></iframe>
+<h3>Step 5: monthly_change</h3><iframe loading="lazy" title="Chart" src="charts/chart_05.html"></iframe>
+<h3>Step 6: monthly_sum</h3><iframe loading="lazy" title="Chart" src="charts/chart_06.html"></iframe>
+<h3>Step 7: monthly_change</h3><iframe loading="lazy" title="Chart" src="charts/chart_07.html"></iframe>
+<h3>Step 10: group_sum</h3><iframe loading="lazy" title="Chart" src="charts/chart_10.html"></iframe>
+<h3>Step 11: group_sum</h3><iframe loading="lazy" title="Chart" src="charts/chart_11.html"></iframe>
+<h3>Step 12: group_sum</h3><iframe loading="lazy" title="Chart" src="charts/chart_12.html"></iframe>
+</section><section class="section"><h2>Agent decisions & execution log</h2>
+<div class="card"><b>Step 1: missingness</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Maximum missing: unit_price (3.2558%).</p></div>
+<div class="card"><b>Step 2: monthly_sum</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Summed revenue across 12 months; latest 2025-12 = 7014000.0.</p></div>
+<div class="card"><b>Step 3: monthly_change</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Largest absolute MoM change: 2025-02 (29.4141%).</p></div>
+<div class="card"><b>Step 4: monthly_sum</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Summed quantity across 12 months; latest 2025-12 = 222.0.</p></div>
+<div class="card"><b>Step 5: monthly_change</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Largest absolute MoM change: 2025-10 (32.7485%).</p></div>
+<div class="card"><b>Step 6: monthly_sum</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Summed unit_price across 12 months; latest 2025-12 = 1962000.0.</p></div>
+<div class="card"><b>Step 7: monthly_change</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Largest absolute MoM change: 2025-05 (43.0312%).</p></div>
+<div class="card"><b>Step 8: summary</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Computed descriptive statistics for 3 numeric measures.</p></div>
+<div class="card"><b>Step 9: duplicates</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Found 5 exact duplicate rows.</p></div>
+<div class="card"><b>Step 10: group_sum</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Top product: Frozen Chicken = 27324000.0.</p></div>
+<div class="card"><b>Step 11: group_sum</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Top product: Frozen Chicken = 727.0.</p></div>
+<div class="card"><b>Step 12: group_sum</b> <span class="pill">ok</span> <span class="pill">deterministic</span><p>Top product: Frozen Chicken = 7167000.0.</p></div>
+</section><section class="section"><h2>Downloads</h2>
+<p><a href="profile.json">profile.json</a></p>
+<p><a href="audit.json">audit.json</a></p>
+<p><a href="evidence.json">evidence.json</a></p>
+<p><a href="cleaning_proposals.json">cleaning_proposals.json</a></p>
+<p><a href="alerts.json">alerts.json</a></p>
+<p><small>This is observational analytics. Do not infer causality from correlation. Verify business context, missing data impacts and incomplete periods before acting. The original input file is never overwritten.</small></p></section></div></body></html>

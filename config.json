@@ -1,0 +1,22 @@
+{
+  "input_file": "data/sales_demo.csv",
+  "goal": "Analyze revenue trends, product contributions, anomalies, and data quality",
+  "mode": "rules",
+  "model": "qwen2.5:7b",
+  "ollama_url": "http://127.0.0.1:11434/api/chat",
+  "ollama_timeout_seconds": 60,
+  "max_steps": 12,
+  "max_seconds": 600,
+  "max_rows": 200000,
+  "max_columns": 100,
+  "max_file_mb": 100,
+  "max_charts": 10,
+  "cleaning": "propose",
+  "derived_metrics": {},
+  "semantic_overrides": {},
+  "alerts": {
+    "missing_pct": 20,
+    "duplicate_pct": 3,
+    "monthly_drop_pct": 30
+  }
+}

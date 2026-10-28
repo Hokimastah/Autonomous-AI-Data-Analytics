@@ -1,0 +1,62 @@
+[
+  {
+    "evidence_id": "step-1",
+    "operation": "missingness",
+    "observation": "Maximum missing: unit_price (3.2558%)."
+  },
+  {
+    "evidence_id": "step-2",
+    "operation": "monthly_sum",
+    "observation": "Summed revenue across 12 months; latest 2025-12 = 7014000.0."
+  },
+  {
+    "evidence_id": "step-3",
+    "operation": "monthly_change",
+    "observation": "Largest absolute MoM change: 2025-02 (29.4141%)."
+  },
+  {
+    "evidence_id": "step-4",
+    "operation": "monthly_sum",
+    "observation": "Summed quantity across 12 months; latest 2025-12 = 222.0."
+  },
+  {
+    "evidence_id": "step-5",
+    "operation": "monthly_change",
+    "observation": "Largest absolute MoM change: 2025-10 (32.7485%)."
+  },
+  {
+    "evidence_id": "step-6",
+    "operation": "monthly_sum",
+    "observation": "Summed unit_price across 12 months; latest 2025-12 = 1962000.0."
+  },
+  {
+    "evidence_id": "step-7",
+    "operation": "monthly_change",
+    "observation": "Largest absolute MoM change: 2025-05 (43.0312%)."
+  },
+  {
+    "evidence_id": "step-8",
+    "operation": "summary",
+    "observation": "Computed descriptive statistics for 3 numeric measures."
+  },
+  {
+    "evidence_id": "step-9",
+    "operation": "duplicates",
+    "observation": "Found 5 exact duplicate rows."
+  },
+  {
+    "evidence_id": "step-10",
+    "operation": "group_sum",
+    "observation": "Top product: Frozen Chicken = 27324000.0."
+  },
+  {
+    "evidence_id": "step-11",
+    "operation": "group_sum",
+    "observation": "Top product: Frozen Chicken = 727.0."
+  },
+  {
+    "evidence_id": "step-12",
+    "operation": "group_sum",
+    "observation": "Top product: Frozen Chicken = 7167000.0."
+  }
+]

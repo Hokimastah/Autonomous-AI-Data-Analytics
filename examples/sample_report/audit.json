@@ -1,0 +1,864 @@
+{
+  "run_id": "20261028T052738641844Z",
+  "source_file": "data/sales_demo.csv",
+  "source_sha256": "1d783231018befe95975282832f73b97060e40d8ad849c6c0db3d080615c443a",
+  "config_sha256": "123fabfba0174feb93a8b5f92bad5561e432642bc118522d720577546aac115b",
+  "started_utc": "2026-10-28T05:27:38.641998+00:00",
+  "completed_utc": "2026-10-28T05:27:38.996244+00:00",
+  "goal": "Analyze revenue trends, product contributions, anomalies, and data quality",
+  "mode": "rules",
+  "status": "complete",
+  "stop_reason": "max_steps_reached",
+  "history": [
+    {
+      "step": 1,
+      "planner": "deterministic",
+      "candidate_score": 95,
+      "action": {
+        "operation": "missingness",
+        "column": null,
+        "metric": null,
+        "reason": "Check missing values"
+      },
+      "started_utc": "2026-10-28T05:27:38.654202+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "column": "order_id",
+          "missing_count": 0,
+          "missing_pct": 0.0
+        },
+        {
+          "column": "order_date",
+          "missing_count": 0,
+          "missing_pct": 0.0
+        },
+        {
+          "column": "product",
+          "missing_count": 0,
+          "missing_pct": 0.0
+        },
+        {
+          "column": "region",
+          "missing_count": 17,
+          "missing_pct": 2.6357
+        },
+        {
+          "column": "quantity",
+          "missing_count": 0,
+          "missing_pct": 0.0
+        },
+        {
+          "column": "unit_price",
+          "missing_count": 21,
+          "missing_pct": 3.2558
+        },
+        {
+          "column": "revenue",
+          "missing_count": 21,
+          "missing_pct": 3.2558
+        }
+      ],
+      "summary": "Maximum missing: unit_price (3.2558%).",
+      "finished_utc": "2026-10-28T05:27:38.792962+00:00"
+    },
+    {
+      "step": 2,
+      "planner": "deterministic",
+      "candidate_score": 94,
+      "action": {
+        "operation": "monthly_sum",
+        "column": "order_date",
+        "metric": "revenue",
+        "reason": "Inspect monthly trend"
+      },
+      "started_utc": "2026-10-28T05:27:38.795854+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "month": "2025-01",
+          "value": 4950000.0
+        },
+        {
+          "month": "2025-02",
+          "value": 6406000.0
+        },
+        {
+          "month": "2025-03",
+          "value": 7284000.0
+        },
+        {
+          "month": "2025-04",
+          "value": 5517000.0
+        },
+        {
+          "month": "2025-05",
+          "value": 6458000.0
+        },
+        {
+          "month": "2025-06",
+          "value": 7586000.0
+        },
+        {
+          "month": "2025-07",
+          "value": 6968000.0
+        },
+        {
+          "month": "2025-08",
+          "value": 6964000.0
+        },
+        {
+          "month": "2025-09",
+          "value": 5443000.0
+        },
+        {
+          "month": "2025-10",
+          "value": 6748000.0
+        },
+        {
+          "month": "2025-11",
+          "value": 6830000.0
+        },
+        {
+          "month": "2025-12",
+          "value": 7014000.0
+        }
+      ],
+      "summary": "Summed revenue across 12 months; latest 2025-12 = 7014000.0.",
+      "finished_utc": "2026-10-28T05:27:38.816455+00:00"
+    },
+    {
+      "step": 3,
+      "planner": "deterministic",
+      "candidate_score": 94,
+      "action": {
+        "operation": "monthly_change",
+        "column": "order_date",
+        "metric": "revenue",
+        "reason": "Quantify month-to-month changes"
+      },
+      "started_utc": "2026-10-28T05:27:38.818644+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "month": "2025-01",
+          "value": 4950000.0,
+          "change_pct": null
+        },
+        {
+          "month": "2025-02",
+          "value": 6406000.0,
+          "change_pct": 29.4141
+        },
+        {
+          "month": "2025-03",
+          "value": 7284000.0,
+          "change_pct": 13.7059
+        },
+        {
+          "month": "2025-04",
+          "value": 5517000.0,
+          "change_pct": -24.2586
+        },
+        {
+          "month": "2025-05",
+          "value": 6458000.0,
+          "change_pct": 17.0564
+        },
+        {
+          "month": "2025-06",
+          "value": 7586000.0,
+          "change_pct": 17.4667
+        },
+        {
+          "month": "2025-07",
+          "value": 6968000.0,
+          "change_pct": -8.1466
+        },
+        {
+          "month": "2025-08",
+          "value": 6964000.0,
+          "change_pct": -0.0574
+        },
+        {
+          "month": "2025-09",
+          "value": 5443000.0,
+          "change_pct": -21.8409
+        },
+        {
+          "month": "2025-10",
+          "value": 6748000.0,
+          "change_pct": 23.9757
+        },
+        {
+          "month": "2025-11",
+          "value": 6830000.0,
+          "change_pct": 1.2152
+        },
+        {
+          "month": "2025-12",
+          "value": 7014000.0,
+          "change_pct": 2.694
+        }
+      ],
+      "summary": "Largest absolute MoM change: 2025-02 (29.4141%).",
+      "finished_utc": "2026-10-28T05:27:38.839718+00:00"
+    },
+    {
+      "step": 4,
+      "planner": "deterministic",
+      "candidate_score": 94,
+      "action": {
+        "operation": "monthly_sum",
+        "column": "order_date",
+        "metric": "quantity",
+        "reason": "Inspect monthly trend"
+      },
+      "started_utc": "2026-10-28T05:27:38.842027+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "month": "2025-01",
+          "value": 160.0
+        },
+        {
+          "month": "2025-02",
+          "value": 208.0
+        },
+        {
+          "month": "2025-03",
+          "value": 247.0
+        },
+        {
+          "month": "2025-04",
+          "value": 173.0
+        },
+        {
+          "month": "2025-05",
+          "value": 204.0
+        },
+        {
+          "month": "2025-06",
+          "value": 243.0
+        },
+        {
+          "month": "2025-07",
+          "value": 223.0
+        },
+        {
+          "month": "2025-08",
+          "value": 225.0
+        },
+        {
+          "month": "2025-09",
+          "value": 171.0
+        },
+        {
+          "month": "2025-10",
+          "value": 227.0
+        },
+        {
+          "month": "2025-11",
+          "value": 217.0
+        },
+        {
+          "month": "2025-12",
+          "value": 222.0
+        }
+      ],
+      "summary": "Summed quantity across 12 months; latest 2025-12 = 222.0.",
+      "finished_utc": "2026-10-28T05:27:38.860981+00:00"
+    },
+    {
+      "step": 5,
+      "planner": "deterministic",
+      "candidate_score": 94,
+      "action": {
+        "operation": "monthly_change",
+        "column": "order_date",
+        "metric": "quantity",
+        "reason": "Quantify month-to-month changes"
+      },
+      "started_utc": "2026-10-28T05:27:38.863740+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "month": "2025-01",
+          "value": 160.0,
+          "change_pct": null
+        },
+        {
+          "month": "2025-02",
+          "value": 208.0,
+          "change_pct": 30.0
+        },
+        {
+          "month": "2025-03",
+          "value": 247.0,
+          "change_pct": 18.75
+        },
+        {
+          "month": "2025-04",
+          "value": 173.0,
+          "change_pct": -29.9595
+        },
+        {
+          "month": "2025-05",
+          "value": 204.0,
+          "change_pct": 17.9191
+        },
+        {
+          "month": "2025-06",
+          "value": 243.0,
+          "change_pct": 19.1176
+        },
+        {
+          "month": "2025-07",
+          "value": 223.0,
+          "change_pct": -8.2305
+        },
+        {
+          "month": "2025-08",
+          "value": 225.0,
+          "change_pct": 0.8969
+        },
+        {
+          "month": "2025-09",
+          "value": 171.0,
+          "change_pct": -24.0
+        },
+        {
+          "month": "2025-10",
+          "value": 227.0,
+          "change_pct": 32.7485
+        },
+        {
+          "month": "2025-11",
+          "value": 217.0,
+          "change_pct": -4.4053
+        },
+        {
+          "month": "2025-12",
+          "value": 222.0,
+          "change_pct": 2.3041
+        }
+      ],
+      "summary": "Largest absolute MoM change: 2025-10 (32.7485%).",
+      "finished_utc": "2026-10-28T05:27:38.881996+00:00"
+    },
+    {
+      "step": 6,
+      "planner": "deterministic",
+      "candidate_score": 94,
+      "action": {
+        "operation": "monthly_sum",
+        "column": "order_date",
+        "metric": "unit_price",
+        "reason": "Inspect monthly trend"
+      },
+      "started_utc": "2026-10-28T05:27:38.884509+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "month": "2025-01",
+          "value": 1295000.0
+        },
+        {
+          "month": "2025-02",
+          "value": 1531000.0
+        },
+        {
+          "month": "2025-03",
+          "value": 2027000.0
+        },
+        {
+          "month": "2025-04",
+          "value": 1313000.0
+        },
+        {
+          "month": "2025-05",
+          "value": 1878000.0
+        },
+        {
+          "month": "2025-06",
+          "value": 1883000.0
+        },
+        {
+          "month": "2025-07",
+          "value": 1716000.0
+        },
+        {
+          "month": "2025-08",
+          "value": 1718000.0
+        },
+        {
+          "month": "2025-09",
+          "value": 1429000.0
+        },
+        {
+          "month": "2025-10",
+          "value": 1814000.0
+        },
+        {
+          "month": "2025-11",
+          "value": 1533000.0
+        },
+        {
+          "month": "2025-12",
+          "value": 1962000.0
+        }
+      ],
+      "summary": "Summed unit_price across 12 months; latest 2025-12 = 1962000.0.",
+      "finished_utc": "2026-10-28T05:27:38.904359+00:00"
+    },
+    {
+      "step": 7,
+      "planner": "deterministic",
+      "candidate_score": 94,
+      "action": {
+        "operation": "monthly_change",
+        "column": "order_date",
+        "metric": "unit_price",
+        "reason": "Quantify month-to-month changes"
+      },
+      "started_utc": "2026-10-28T05:27:38.907011+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "month": "2025-01",
+          "value": 1295000.0,
+          "change_pct": null
+        },
+        {
+          "month": "2025-02",
+          "value": 1531000.0,
+          "change_pct": 18.2239
+        },
+        {
+          "month": "2025-03",
+          "value": 2027000.0,
+          "change_pct": 32.3971
+        },
+        {
+          "month": "2025-04",
+          "value": 1313000.0,
+          "change_pct": -35.2245
+        },
+        {
+          "month": "2025-05",
+          "value": 1878000.0,
+          "change_pct": 43.0312
+        },
+        {
+          "month": "2025-06",
+          "value": 1883000.0,
+          "change_pct": 0.2662
+        },
+        {
+          "month": "2025-07",
+          "value": 1716000.0,
+          "change_pct": -8.8688
+        },
+        {
+          "month": "2025-08",
+          "value": 1718000.0,
+          "change_pct": 0.1166
+        },
+        {
+          "month": "2025-09",
+          "value": 1429000.0,
+          "change_pct": -16.8219
+        },
+        {
+          "month": "2025-10",
+          "value": 1814000.0,
+          "change_pct": 26.9419
+        },
+        {
+          "month": "2025-11",
+          "value": 1533000.0,
+          "change_pct": -15.4906
+        },
+        {
+          "month": "2025-12",
+          "value": 1962000.0,
+          "change_pct": 27.9843
+        }
+      ],
+      "summary": "Largest absolute MoM change: 2025-05 (43.0312%).",
+      "finished_utc": "2026-10-28T05:27:38.924913+00:00"
+    },
+    {
+      "step": 8,
+      "planner": "deterministic",
+      "candidate_score": 92,
+      "action": {
+        "operation": "summary",
+        "column": null,
+        "metric": null,
+        "reason": "Establish numeric baselines"
+      },
+      "started_utc": "2026-10-28T05:27:38.927360+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "column": "quantity",
+          "count": 645,
+          "sum": 2520.0,
+          "mean": 3.907,
+          "median": 4.0,
+          "min": 1.0,
+          "max": 7.0
+        },
+        {
+          "column": "unit_price",
+          "count": 624,
+          "sum": 20099000.0,
+          "mean": 32209.9359,
+          "median": 33000.0,
+          "min": 22000.0,
+          "max": 40000.0
+        },
+        {
+          "column": "revenue",
+          "count": 624,
+          "sum": 78168000.0,
+          "mean": 125269.2308,
+          "median": 117000.0,
+          "min": 22000.0,
+          "max": 280000.0
+        }
+      ],
+      "summary": "Computed descriptive statistics for 3 numeric measures.",
+      "finished_utc": "2026-10-28T05:27:38.928477+00:00"
+    },
+    {
+      "step": 9,
+      "planner": "deterministic",
+      "candidate_score": 90,
+      "action": {
+        "operation": "duplicates",
+        "column": null,
+        "metric": null,
+        "reason": "Check exact-row duplicates"
+      },
+      "started_utc": "2026-10-28T05:27:38.930673+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "exact_duplicates": 5,
+          "duplicate_pct": 0.7752
+        }
+      ],
+      "summary": "Found 5 exact duplicate rows.",
+      "finished_utc": "2026-10-28T05:27:38.931280+00:00"
+    },
+    {
+      "step": 10,
+      "planner": "deterministic",
+      "candidate_score": 83,
+      "action": {
+        "operation": "group_sum",
+        "column": "product",
+        "metric": "revenue",
+        "reason": "Rank contributions by dimension"
+      },
+      "started_utc": "2026-10-28T05:27:38.935619+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "category": "Frozen Chicken",
+          "value": 27324000.0
+        },
+        {
+          "category": "Nuggets",
+          "value": 19979000.0
+        },
+        {
+          "category": "French Fries",
+          "value": 14015000.0
+        },
+        {
+          "category": "Fish Ball",
+          "value": 11201000.0
+        },
+        {
+          "category": "Sausage",
+          "value": 5649000.0
+        }
+      ],
+      "summary": "Top product: Frozen Chicken = 27324000.0.",
+      "finished_utc": "2026-10-28T05:27:38.952998+00:00"
+    },
+    {
+      "step": 11,
+      "planner": "deterministic",
+      "candidate_score": 83,
+      "action": {
+        "operation": "group_sum",
+        "column": "product",
+        "metric": "quantity",
+        "reason": "Rank contributions by dimension"
+      },
+      "started_utc": "2026-10-28T05:27:38.955329+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "category": "Frozen Chicken",
+          "value": 727.0
+        },
+        {
+          "category": "Nuggets",
+          "value": 599.0
+        },
+        {
+          "category": "French Fries",
+          "value": 537.0
+        },
+        {
+          "category": "Fish Ball",
+          "value": 403.0
+        },
+        {
+          "category": "Sausage",
+          "value": 254.0
+        }
+      ],
+      "summary": "Top product: Frozen Chicken = 727.0.",
+      "finished_utc": "2026-10-28T05:27:38.973210+00:00"
+    },
+    {
+      "step": 12,
+      "planner": "deterministic",
+      "candidate_score": 83,
+      "action": {
+        "operation": "group_sum",
+        "column": "product",
+        "metric": "unit_price",
+        "reason": "Rank contributions by dimension"
+      },
+      "started_utc": "2026-10-28T05:27:38.975669+00:00",
+      "status": "ok",
+      "records": [
+        {
+          "category": "Frozen Chicken",
+          "value": 7167000.0
+        },
+        {
+          "category": "Nuggets",
+          "value": 5299000.0
+        },
+        {
+          "category": "French Fries",
+          "value": 3299000.0
+        },
+        {
+          "category": "Fish Ball",
+          "value": 2959000.0
+        },
+        {
+          "category": "Sausage",
+          "value": 1375000.0
+        }
+      ],
+      "summary": "Top product: Frozen Chicken = 7167000.0.",
+      "finished_utc": "2026-10-28T05:27:38.993926+00:00"
+    }
+  ],
+  "charts": [
+    {
+      "title": "Step 1: missingness",
+      "file": "charts/chart_01.html"
+    },
+    {
+      "title": "Step 2: monthly_sum",
+      "file": "charts/chart_02.html"
+    },
+    {
+      "title": "Step 3: monthly_change",
+      "file": "charts/chart_03.html"
+    },
+    {
+      "title": "Step 4: monthly_sum",
+      "file": "charts/chart_04.html"
+    },
+    {
+      "title": "Step 5: monthly_change",
+      "file": "charts/chart_05.html"
+    },
+    {
+      "title": "Step 6: monthly_sum",
+      "file": "charts/chart_06.html"
+    },
+    {
+      "title": "Step 7: monthly_change",
+      "file": "charts/chart_07.html"
+    },
+    {
+      "title": "Step 10: group_sum",
+      "file": "charts/chart_10.html"
+    },
+    {
+      "title": "Step 11: group_sum",
+      "file": "charts/chart_11.html"
+    },
+    {
+      "title": "Step 12: group_sum",
+      "file": "charts/chart_12.html"
+    }
+  ],
+  "errors": [],
+  "applied_changes": [],
+  "narrative": [],
+  "profile": {
+    "source_name": "data/sales_demo.csv",
+    "source_sha256": "1d783231018befe95975282832f73b97060e40d8ad849c6c0db3d080615c443a",
+    "rows": 645,
+    "columns": 7,
+    "duplicates": 5,
+    "duplicate_pct": 0.78,
+    "roles": {
+      "order_id": "identifier",
+      "order_date": "date",
+      "product": "dimension",
+      "region": "dimension",
+      "quantity": "measure",
+      "unit_price": "measure",
+      "revenue": "measure"
+    },
+    "column_info": [
+      {
+        "name": "order_id",
+        "role": "identifier",
+        "dtype": "object",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 640
+      },
+      {
+        "name": "order_date",
+        "role": "date",
+        "dtype": "object",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 298
+      },
+      {
+        "name": "product",
+        "role": "dimension",
+        "dtype": "object",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 5
+      },
+      {
+        "name": "region",
+        "role": "dimension",
+        "dtype": "object",
+        "missing": 17,
+        "missing_pct": 2.64,
+        "unique": 5
+      },
+      {
+        "name": "quantity",
+        "role": "measure",
+        "dtype": "int64",
+        "missing": 0,
+        "missing_pct": 0.0,
+        "unique": 7,
+        "mean": 3.907,
+        "sum": 2520.0
+      },
+      {
+        "name": "unit_price",
+        "role": "measure",
+        "dtype": "float64",
+        "missing": 21,
+        "missing_pct": 3.26,
+        "unique": 14,
+        "mean": 32209.9359,
+        "sum": 20099000.0
+      },
+      {
+        "name": "revenue",
+        "role": "measure",
+        "dtype": "float64",
+        "missing": 21,
+        "missing_pct": 3.26,
+        "unique": 88,
+        "mean": 125269.2308,
+        "sum": 78168000.0
+      }
+    ]
+  },
+  "cleaning_proposal_count": 5,
+  "evidence": [
+    {
+      "evidence_id": "step-1",
+      "operation": "missingness",
+      "observation": "Maximum missing: unit_price (3.2558%)."
+    },
+    {
+      "evidence_id": "step-2",
+      "operation": "monthly_sum",
+      "observation": "Summed revenue across 12 months; latest 2025-12 = 7014000.0."
+    },
+    {
+      "evidence_id": "step-3",
+      "operation": "monthly_change",
+      "observation": "Largest absolute MoM change: 2025-02 (29.4141%)."
+    },
+    {
+      "evidence_id": "step-4",
+      "operation": "monthly_sum",
+      "observation": "Summed quantity across 12 months; latest 2025-12 = 222.0."
+    },
+    {
+      "evidence_id": "step-5",
+      "operation": "monthly_change",
+      "observation": "Largest absolute MoM change: 2025-10 (32.7485%)."
+    },
+    {
+      "evidence_id": "step-6",
+      "operation": "monthly_sum",
+      "observation": "Summed unit_price across 12 months; latest 2025-12 = 1962000.0."
+    },
+    {
+      "evidence_id": "step-7",
+      "operation": "monthly_change",
+      "observation": "Largest absolute MoM change: 2025-05 (43.0312%)."
+    },
+    {
+      "evidence_id": "step-8",
+      "operation": "summary",
+      "observation": "Computed descriptive statistics for 3 numeric measures."
+    },
+    {
+      "evidence_id": "step-9",
+      "operation": "duplicates",
+      "observation": "Found 5 exact duplicate rows."
+    },
+    {
+      "evidence_id": "step-10",
+      "operation": "group_sum",
+      "observation": "Top product: Frozen Chicken = 27324000.0."
+    },
+    {
+      "evidence_id": "step-11",
+      "operation": "group_sum",
+      "observation": "Top product: Frozen Chicken = 727.0."
+    },
+    {
+      "evidence_id": "step-12",
+      "operation": "group_sum",
+      "observation": "Top product: Frozen Chicken = 7167000.0."
+    }
+  ],
+  "alerts": [
+    {
+      "level": "warning",
+      "name": "monthly_drop",
+      "detail": "unit_price declined 35.2245% in 2025-04 vs prior month; check partial-month effects"
+    }
+  ]
+}

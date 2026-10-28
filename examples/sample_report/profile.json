@@ -1,0 +1,81 @@
+{
+  "source_name": "data/sales_demo.csv",
+  "source_sha256": "1d783231018befe95975282832f73b97060e40d8ad849c6c0db3d080615c443a",
+  "rows": 645,
+  "columns": 7,
+  "duplicates": 5,
+  "duplicate_pct": 0.78,
+  "roles": {
+    "order_id": "identifier",
+    "order_date": "date",
+    "product": "dimension",
+    "region": "dimension",
+    "quantity": "measure",
+    "unit_price": "measure",
+    "revenue": "measure"
+  },
+  "column_info": [
+    {
+      "name": "order_id",
+      "role": "identifier",
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "unique": 640
+    },
+    {
+      "name": "order_date",
+      "role": "date",
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "unique": 298
+    },
+    {
+      "name": "product",
+      "role": "dimension",
+      "dtype": "object",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "unique": 5
+    },
+    {
+      "name": "region",
+      "role": "dimension",
+      "dtype": "object",
+      "missing": 17,
+      "missing_pct": 2.64,
+      "unique": 5
+    },
+    {
+      "name": "quantity",
+      "role": "measure",
+      "dtype": "int64",
+      "missing": 0,
+      "missing_pct": 0.0,
+      "unique": 7,
+      "mean": 3.907,
+      "sum": 2520.0
+    },
+    {
+      "name": "unit_price",
+      "role": "measure",
+      "dtype": "float64",
+      "missing": 21,
+      "missing_pct": 3.26,
+      "unique": 14,
+      "mean": 32209.9359,
+      "sum": 20099000.0
+    },
+    {
+      "name": "revenue",
+      "role": "measure",
+      "dtype": "float64",
+      "missing": 21,
+      "missing_pct": 3.26,
+      "unique": 88,
+      "mean": 125269.2308,
+      "sum": 78168000.0
+    }
+  ]
+}
