@@ -1,4 +1,4 @@
-# Autonomous AI Data Analytics — Complete Local Project v1.0
+# Autonomous AI Data Analytics
 
 A fully local-first **bounded autonomous analytics agent** with deterministic computation and optional **Ollama** planning/narratives. It reads real CSV/XLSX/Parquet datasets, infers column semantics, proposes data cleaning for approval, executes safe statistical analyses, records every decision, makes offline Plotly dashboards, and stores persistent run history with step-by-step checkpoints.
 
@@ -197,4 +197,3 @@ tests/                         automated smoke, quality and safety tests
 - Ollama JSON schema outputs: https://docs.ollama.com/api
 - Streamlit local app: https://docs.streamlit.io/develop/api-reference/widgets/st.file_uploader
 
-License: MIT (see LICENSE). Example data are synthetic.
